@@ -1,0 +1,27 @@
+{
+    "name": "benjamin/object-routing-bundle",
+    "description": "Introduce the ObjectRouting library into your Symfony2 project.",
+    "keywords": ["annotations","routing"],
+    "type": "symfony-bundle",
+    "license": "Apache2",
+    "authors": [
+        {
+            "name": "Benjamin Grandfong",
+            "email": "benjamin.grandfond@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "symfony/framework-bundle": ">=2.1.0,<2.3-dev",
+        "jms/object-routing": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "BG\\ObjectRoutingBundle": "" }
+    },
+    "target-dir": "BG/ObjectRoutingBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

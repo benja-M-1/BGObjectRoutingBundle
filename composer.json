@@ -1,5 +1,5 @@
 {
-    "name": "benjamin/object-routing-bundle",
+    "name": "benjam1/object-routing-bundle",
     "description": "Introduce the ObjectRouting library into your Symfony2 project.",
     "keywords": ["annotations","routing"],
     "type": "symfony-bundle",

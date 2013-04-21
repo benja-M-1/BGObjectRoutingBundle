@@ -55,6 +55,7 @@
         <service id="bg_object_routing.metadata_factory" class="%bg_object_routing.metadata_factory.class%" public="false">
             <argument type="service" id="bg_object_routing.lazy_loading_driver" />
             <argument type="service" id="bg_object_routing.file_cache" />
+            <argument>%kernel.debug%</argument>
             <call method="setIncludeInterfaces">
                 <argument>true</argument>
             </call>

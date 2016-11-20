@@ -13,7 +13,7 @@
     "minimum-stability": "dev",
     "require": {
         "symfony/framework-bundle": "~2.1",
-        "jms/object-routing": "dev-master"
+        "jms/object-routing": "~1.0"
     },
     "autoload": {
         "psr-0": { "BG\\ObjectRoutingBundle": "" }

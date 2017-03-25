@@ -11,7 +11,7 @@ Instal the bundle with composer:
 ```json
     "require": {
         …
-        "benjam1/object-routing-bundle": "1.0.*@dev"
+        "benjam1/object-routing-bundle": "^1.0"
     }
 ``` 
 

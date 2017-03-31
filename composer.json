@@ -16,9 +16,8 @@
         "jms/object-routing": "~1.0"
     },
     "autoload": {
-        "psr-0": { "BG\\ObjectRoutingBundle": "" }
+        "psr-4": { "BG\\ObjectRoutingBundle\\": "" }
     },
-    "target-dir": "BG/ObjectRoutingBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"

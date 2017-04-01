@@ -17,12 +17,14 @@
     </parameters>
 
     <services>
+        <service id="bg_object_routing.adapter.symfony_22" class="JMS\ObjectRouting\Symfony\Symfony22Adapter" public="false">
+            <argument type="service" id="router" />
+        </service>
+
+        <service id="bg_object_routing.adapter" alias="bg_object_routing.adapter.symfony_22" public="false"/>
+
         <service id="bg_object_routing.object_router" class="%bg_object_routing.object_router.class%">
-            <argument type="service">
-                <service class="JMS\ObjectRouting\Symfony\Symfony22Adapter">
-                    <argument type="service" id="router" />
-                </service>
-            </argument>
+            <argument type="service" id="bg_object_routing.adapter" />
             <argument type="service" id="bg_object_routing.metadata_factory" />
         </service>
 

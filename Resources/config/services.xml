@@ -6,6 +6,7 @@
 
     <parameters>
         <parameter key="bg_object_routing.adapter.symfony_21.class">JMS\ObjectRouting\Symfony\Symfony21Adapter</parameter>
+        <parameter key="bg_object_routing.adapter.symfony_22.class">JMS\ObjectRouting\Symfony\Symfony22Adapter</parameter>
         <parameter key="bg_object_routing.object_router.class">JMS\ObjectRouting\ObjectRouter</parameter>
         <parameter key="bg_object_routing.twig_extension.class">JMS\ObjectRouting\Twig\RoutingExtension</parameter>
 
@@ -17,7 +18,7 @@
     </parameters>
 
     <services>
-        <service id="bg_object_routing.adapter.symfony_22" class="JMS\ObjectRouting\Symfony\Symfony22Adapter" public="false">
+        <service id="bg_object_routing.adapter.symfony_22" class="%bg_object_routing.adapter.symfony_22.class%" public="false">
             <argument type="service" id="router" />
         </service>
 

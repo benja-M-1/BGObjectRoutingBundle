@@ -10,7 +10,7 @@
 
     "type": "symfony-bundle",
 
-    "license": "Apache2",
+    "license": "Apache-2.0",
 
     "authors": [
         {

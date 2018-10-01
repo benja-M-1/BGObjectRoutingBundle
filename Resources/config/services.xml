@@ -23,7 +23,7 @@
 
         <service id="bg_object_routing.adapter" alias="bg_object_routing.adapter.symfony_22" public="false"/>
 
-        <service id="bg_object_routing.object_router" class="%bg_object_routing.object_router.class%">
+        <service id="bg_object_routing.object_router" class="%bg_object_routing.object_router.class%" public="true">
             <argument type="service" id="bg_object_routing.adapter" />
             <argument type="service" id="bg_object_routing.metadata_factory" />
         </service>
@@ -38,7 +38,8 @@
                 <argument type="service" id="bg_object_routing.annotation_driver" />
             </argument>
         </service>
-        <service id="bg_object_routing.metadata_driver" alias="bg_object_routing.driver_chain"></service>
+
+        <service id="bg_object_routing.metadata_driver" alias="bg_object_routing.driver_chain" public="true" />
 
         <service id="bg_object_routing.lazy_loading_driver" class="%bg_object_routing.lazy_loading_driver.class%" public="false">
             <argument type="service" id="service_container" />

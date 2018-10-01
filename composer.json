@@ -25,10 +25,10 @@
 
     "replace": {
         "benjam1/object-routing-bundle": "<= 1.0.0"
-    }
+    },
 
     "require": {
-        "symfony/framework-bundle": "^2.2|^3.0",
+        "symfony/framework-bundle": "^2.2||^3.0",
         "jms/object-routing": "^1.0"
     },
 

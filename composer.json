@@ -1,7 +1,7 @@
 {
     "name": "webfactory/object-routing-bundle",
 
-    "description": "Introduce the ObjectRouting library into your Symfony2 project.",
+    "description": "Fork of benjam1/object-routing-bundle, added Symfony 3.x support. Integrates the ObjectRouting library into your Symfony project.",
 
     "keywords": [ 
         "annotations",

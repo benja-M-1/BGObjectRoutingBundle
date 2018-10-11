@@ -7,3 +7,6 @@ seems to have abandoned the original BGObjectRoutingBundle.
 ## Documentation
 
 For more documentation about the usage of this bundle see the [library's one](https://github.com/webfactory/object-routing) 
+
+See the [Changelog](CHANGELOG.md) for a description of breaking changes
+since the original (upstream) 1.0 release.

@@ -1,4 +1,4 @@
-## Notable changes since the original 1.0.0 release
+# Version 2.0.0
 
 * The `bg_object_routing.adapter.symfony_21` service has been removed. If
   you were redefining this service to make the object router use another

@@ -29,7 +29,7 @@
 
     "require": {
         "symfony/framework-bundle": "^2.2||^3.0",
-        "jms/object-routing": "^1.0"
+        "webfactory/object-routing": "^1.1"
     },
 
     "autoload": {

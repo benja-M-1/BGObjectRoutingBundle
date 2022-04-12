@@ -28,13 +28,16 @@
     },
 
     "require": {
-        "symfony/framework-bundle": "^3.3 || ^4.0",
+        "php": "7.2.*|7.3.*|7.4.*",
+        "symfony/config": "^4.4|^5.0",
+        "symfony/dependency-injection": "^4.4|^5.0",
+        "symfony/http-kernel": "^4.4|^5.0",
         "webfactory/object-routing": "^1.1"
     },
 
     "autoload": {
         "psr-4": {
-            "BG\\ObjectRoutingBundle\\": ""
+            "BG\\ObjectRoutingBundle\\": "src"
         }
     }
 }

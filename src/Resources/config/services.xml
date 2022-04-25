@@ -6,58 +6,65 @@
 
     <services>
 
+        <defaults public="false" />
+
+        <service id="bg_object_routing.adapter" alias="JMS\ObjectRouting\RouterInterface">
+            <deprecated package="webfactory/object-routing-bundle" version="2.4.0" />
+        </service>
+        <service id="JMS\ObjectRouting\RouterInterface" alias="JMS\ObjectRouting\Symfony\Symfony22Adapter" />
         <service id="JMS\ObjectRouting\Symfony\Symfony22Adapter">
             <argument type="service" id="router" />
         </service>
-        <service id="bg_object_routing.adapter.symfony_22" alias="JMS\ObjectRouting\Symfony\Symfony22Adapter" />
-        <service id="bg_object_routing.adapter" alias="bg_object_routing.adapter.symfony_22" />
 
-        <service id="JMS\ObjectRouting\ObjectRouter">
+        <service id="JMS\ObjectRouting\ObjectRouter" public="true">
+            <!-- stil uses the deprecated alias for BC (service might be decorated) -->
             <argument type="service" id="bg_object_routing.adapter" />
-            <argument type="service" id="bg_object_routing.metadata_factory" />
+            <argument type="service" id="Metadata\MetadataFactory" />
         </service>
-        <service id="bg_object_routing.object_router" alias="JMS\ObjectRouting\ObjectRouter" public="true" />
+        <service id="bg_object_routing.object_router" alias="JMS\ObjectRouting\ObjectRouter" public="true">
+            <deprecated package="webfactory/object-routing-bundle" version="2.4.0" />
+        </service>
 
         <service id="JMS\ObjectRouting\Twig\RoutingExtension">
-            <argument type="service" id="bg_object_routing.object_router" />
+            <argument type="service" id="JMS\ObjectRouting\ObjectRouter" />
             <tag name="twig.extension"/>
         </service>
-        <service id="bg_object_routing.twig_extension" alias="JMS\ObjectRouting\Twig\RoutingExtension" />
 
+        <!-- Public to make the LazyLoadingDriver work -->
+        <service id="Metadata\Driver\DriverInterface" alias="Metadata\Driver\DriverChain" public="true" />
         <service id="Metadata\Driver\DriverChain">
             <argument type="collection">
-                <argument type="service" id="bg_object_routing.annotation_driver" />
+                <argument type="service" id="JMS\ObjectRouting\Metadata\Driver\AnnotationDriver" />
             </argument>
         </service>
-        <service id="bg_object_routing.driver_chain" alias="Metadata\Driver\DriverChain" />
-        <service id="bg_object_routing.metadata_driver" alias="Metadata\Driver\DriverChain" public="true" />
-
-        <service id="Metadata\Driver\LazyLoadingDriver">
-            <argument type="service" id="service_container" />
-            <argument>bg_object_routing.metadata_driver</argument>
-        </service>
-        <service id="bg_object_routing.lazy_loading_driver" alias="Metadata\Driver\LazyLoadingDriver" />
 
         <service id="JMS\ObjectRouting\Metadata\Driver\AnnotationDriver">
             <argument type="service" id="annotation_reader" />
         </service>
-        <service id="bg_object_routing.annotation_driver" alias="JMS\ObjectRouting\Metadata\Driver\AnnotationDriver" />
+
+        <service id="Metadata\Cache\CacheInterface" alias="Metadata\Cache\FileCache" />
 
         <service id="Metadata\Cache\FileCache">
             <argument>%bg_object_routing.cache_dir%</argument>
             <argument>%kernel.debug%</argument>
         </service>
-        <service id="bg_object_routing.file_cache" alias="Metadata\Cache\FileCache" />
 
         <service id="Metadata\MetadataFactory">
-            <argument type="service" id="bg_object_routing.lazy_loading_driver" />
-            <argument type="service" id="bg_object_routing.file_cache" />
+            <argument type="service">
+                <service class="Metadata\Driver\LazyLoadingDriver">
+                    <argument type="service" id="service_container" />
+                    <argument>Metadata\Driver\DriverInterface</argument>
+                </service>
+            </argument>
+            <argument>Metadata\ClassHierarchyMetadata</argument>
             <argument>%kernel.debug%</argument>
+            <call method="setCache">
+                <argument type="service" id="Metadata\Cache\CacheInterface" />
+            </call>
             <call method="setIncludeInterfaces">
                 <argument>true</argument>
             </call>
         </service>
-        <service id="bg_object_routing.metadata_factory" alias="Metadata\MetadataFactory" />
 
     </services>
 </container>

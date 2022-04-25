@@ -1,22 +1,15 @@
 {
     "name": "webfactory/object-routing-bundle",
 
-    "description": "Fork of benjam1/object-routing-bundle, added Symfony 3.x support. Integrates the ObjectRouting library into your Symfony project.",
+    "description": "Support for webfactory/object-routing in Symfony projects (started as a fork of benjam1/object-routing-bundle)",
 
-    "keywords": [ 
-        "annotations",
-        "routing"
-    ],
+    "keywords": ["annotations", "routing"],
 
     "type": "symfony-bundle",
 
     "license": "Apache-2.0",
 
     "authors": [
-        {
-            "name": "Benjamin Grandfond",
-            "email": "benjamin.grandfond@gmail.com"
-        },
         {
             "name": "webfactory GmbH",
             "email": "info@webfactory.de"
@@ -32,7 +25,8 @@
         "symfony/config": "^4.4|^5.0",
         "symfony/dependency-injection": "^4.4|^5.0",
         "symfony/http-kernel": "^4.4|^5.0",
-        "webfactory/object-routing": "^1.1"
+        "webfactory/object-routing": "^1.5",
+        "jms/metadata": "^2.6"
     },
 
     "autoload": {
